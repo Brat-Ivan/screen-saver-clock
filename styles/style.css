@@ -1,0 +1,290 @@
+:root {
+  --color-main: #9cadce;
+  --color-accent: #808080;
+  --color-bg: #fffefe;
+  --color-white: #fff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 121%;
+  color: var(--color-main);
+}
+
+.container {
+  width: 100%;
+  padding: 0 234px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 100%;
+  border-radius: 30px 30px 0 0;
+  background: url(../assets/img/bg.jpg) center / cover no-repeat;
+  padding-top: 30px;
+}
+
+.clock-wrapper {
+  display: flex;
+  align-items: center;
+  min-height: 850px;
+  border-radius: 20px 20px 0 0;
+  background: url(../assets/img/clock-bg.png) top left / 275px var(--color-bg);
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  border: 1px solid var(--color-main);
+  border-radius: 25px;
+  box-shadow: -4px -4px 12px 0 var(--color-main), 4px 4px 12px 0 var(--color-main);
+  padding: 34px 0 233px;
+}
+
+.clock-wrapper__clock {
+  margin: 0 auto;
+}
+
+.clock__clock-face {
+  position: relative;
+  display: flex;
+  margin-bottom: 49px;
+}
+
+.clock-face {
+  width: 67px;
+  height: 67px;
+  border-radius: 15px;
+  background-color: var(--color-main);
+}
+
+.clock-face__hour-hand,
+.clock-face__minute-hand,
+.clock-face__center {
+  position: absolute;
+  left: 50%;
+  display: block;
+  width: 5px;
+}
+
+.clock-face__hour-hand,
+.clock-face__minute-hand {
+  border-radius: 3px;
+  background: linear-gradient(
+    var(--color-white) 0,
+    var(--color-white) 50%,
+    transparent 50%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+}
+
+.clock-face__hour-hand {
+  height: 32px;
+  top: 18px;
+}
+
+.clock-face__minute-hand {
+  height: 36px;
+  top: 16px;
+}
+
+.clock-face__center {
+  top: 50%;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.time {
+  display: flex;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: normal;
+  text-align: center;
+}
+
+.clock__time {
+  margin-bottom: 7px;
+}
+
+.time__hours,
+.time__minutes,
+.time__seconds {
+  display: flex;
+}
+
+.time__number-wrapper {
+  position: relative;
+  width: 29px;
+  overflow-y: hidden;
+}
+
+.time__number {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+}
+
+.time__number:nth-child(odd) {
+  top: -51px;
+}
+
+.move-next-num {
+  animation: move-next-num 0.5s linear 0.5s forwards;
+}
+
+.move-current-num {
+  animation: move-current-num 0.5s linear 0.5s forwards;
+}
+
+.date {
+  letter-spacing: 0.03em;
+  color: var(--color-accent);
+}
+
+@keyframes move-next-num {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(51px);
+  }
+}
+
+@keyframes move-current-num {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(51px);
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .container {
+    padding: 0 112px;
+  }
+
+  .clock-wrapper {
+    min-height: 700px;
+    border-radius: 30px 30px 0 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 80px;
+  }
+
+  .clock-wrapper {
+    min-height: 844px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .clock {
+    width: 300px;
+    padding: 26px 0 174px;
+  }
+
+  .clock__clock-face {
+    margin-bottom: 32px;
+  }
+
+  .clock-face {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+  }
+
+  .clock-face__hour-hand,
+  .clock-face__minute-hand {
+    width: 4px;
+    border-radius: 2px;
+  }
+
+  .clock-face__hour-hand {
+    height: 24px;
+    top: 13px;
+  }
+  
+  .clock-face__minute-hand {
+    height: 28px;
+    top: 11px;
+  }
+
+  .clock-face__center {
+    width: 4px;
+    height: 4px;
+  }
+
+  .time {
+    font-size: 35px;
+  }
+
+  .clock__time {
+    margin-bottom: 5px;
+  }
+
+  .time__number-wrapper {
+    width: 24px;
+  }
+
+  .time__number:nth-child(odd) {
+    top: -42px;
+  }
+
+  .date {
+    height: 19px;
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  @keyframes move-next-num {
+    from {
+      transform: translateY(0);
+    }
+  
+    to {
+      transform: translateY(42px);
+    }
+  }
+  
+  @keyframes move-current-num {
+    from {
+      transform: translateY(0);
+    }
+  
+    to {
+      transform: translateY(42px);
+    }
+  }
+}
