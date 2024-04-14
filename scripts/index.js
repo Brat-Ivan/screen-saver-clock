@@ -1,4 +1,5 @@
-import { addZero } from './addZero.js';
+import { addZero } from './helperFunction.js';
+import { MONTH_NAMES } from './constants.js';
 
 const hourHand = document.querySelector('.clock-face__hour-hand');
 const minuteHand = document.querySelector('.clock-face__minute-hand');
@@ -34,21 +35,6 @@ function getTimeAndDate() {
 }
 
 getTimeAndDate();
-
-const MONTH_NAMES = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-];
 
 function setHands() {
   hourHand.style.transform = `
